@@ -374,7 +374,7 @@ fn read_username_from_file() -&gt; Result&lt;String, io::Error&gt; {
 </span></code></pre></pre>
 <p><span class="caption">範例 9-9：使用 <code>fs::read_to_string</code> 而不是開啟檔案後才讀取</span></p>
 <p>讀取檔案至字串中算是個常見動作，所以標準函式庫提供了一個方便的函式 <code>fs::read_to_string</code> 來開啟檔案、建立新的 <code>String</code>、讀取檔案內容、將內容放入該 <code>String</code> 並回傳它。不過使用 <code>fs::read_to_string</code> 就沒有機會讓我們來解釋所有的錯誤處理，所以我們一開始才用比較長的寫法。</p>
-<h4 id="-運算子可以用哪裡"><a class="header" href="#-運算子可以用哪裡"><code>?</code> 運算子可以用哪裡？</a></h4>
+<h4 id="-運算子可以用在哪裡"><a class="header" href="#-運算子可以用在哪裡"><code>?</code> 運算子可以用在哪裡？</a></h4>
 <p><code>?</code> 運算子只能用在有函式的回傳值相容於 <code>?</code> 使用的值才行。這是因為 <code>?</code> 運算子會在函式中提早回傳數值，就像我們在範例 9-6 那樣用 <code>match</code> 表達式提早回傳一樣。在範例 9-6 中，<code>match</code> 使用的是 <code>Result</code> 數值，函式的回傳值必須是 <code>Result</code> 才能相容於此 <code>return</code>。</p>
 <p>讓我們看看在範例 9-10 的 <code>main</code> 函式中的回傳值要是不相容於我們用在 <code>?</code> 的型別，如果我們使用 <code>?</code> 運算子會發生什麼事：</p>
 <pre><code class="language-rust ignore does_not_compile">use std::fs::File;
