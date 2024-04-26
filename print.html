@@ -5476,7 +5476,7 @@ thread 'main' panicked at '◢▆▅▄▃ 崩╰(〒皿〒)╯潰▃▄▅▆�
 note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
 </code></pre>
 <p><code>panic!</code> 的呼叫導致印出了最後兩行的錯誤訊息。第一行顯示了我們的恐慌訊息以及該恐慌是在原始碼何處發生的：<em>src/main.rs:2:5</em> 指的是它發生在我們的 <em>src/main.rs</em> 檔案第二行第五個字元。</p>
-<p>在此例中，該行指的就是我們寫的程式碼。如果我們查看該行，我們會看到 <code>panic!</code> 巨集的呼叫。在其他情形，<code>panic!</code> 的呼叫可能會發生在我們呼叫的程式碼內，所以錯誤訊息回報的檔案名稱與行數可能就會是其他人呼叫 <code>panic!</code> 巨集的程式碼，而不是因為我們的程式碼才導致 <code>panic!</code> 的呼叫。我們可以在呼叫 <code>panic!</code> 程式碼的地方使用 backtrace 來找出出現問題的地方。接下來我們就會深入瞭解 backtrace。</p>
+<p>在此例中，該行指的就是我們寫的程式碼。如果我們查看該行，我們會看到 <code>panic!</code> 巨集的呼叫。在其他情形，<code>panic!</code> 的呼叫可能會發生在我們呼叫的其他程式碼內，所以錯誤訊息回報的檔案名稱與行數可能就會是其他人呼叫 <code>panic!</code> 巨集的程式碼，而不是因為我們的程式碼才導致 <code>panic!</code> 的呼叫。我們可以在呼叫 <code>panic!</code> 程式碼的地方使用 backtrace 來找出出現問題的地方。接下來我們就會深入瞭解 backtrace。</p>
 <h3 id="使用-panic-backtrace"><a class="header" href="#使用-panic-backtrace">使用 <code>panic!</code> Backtrace</a></h3>
 <p>讓我們看看另一個例子，這是函式庫發生錯誤而呼叫 <code>panic!</code>，而不是來自於我們在程式碼自己呼叫的巨集。範例 9-1 是個嘗試從向量有效範圍外取得索引的例子。</p>
 <p><span class="filename">檔案名稱：src/main.rs</span></p>
