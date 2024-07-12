@@ -15006,7 +15006,7 @@ fn main() {
 <p>第一個分支透過指定 <code>y</code> 欄位配對字面值為 <code>0</code> 來配對任何在 <code>x</code> 軸上的點。此模式仍然會建立變數 <code>x</code> 能讓我們在此分支的程式碼中使用。</p>
 <p>同樣地，第二個分支透過指定 <code>x</code> 欄位配對字面值為 <code>0</code> 來配對任何在 <code>y</code> 軸上的點，並建立擁有 <code>y</code> 欄位數值的變數 <code>y</code>。第三個分支沒有指定任何字面值，所以它能配對任何其他 <code>Point</code> 並建立 <code>x</code> 與 <code>y</code> 欄位對應的變數。</p>
 <p>在此例中，數值 <code>p</code> 會配對到第二個分支，因為其 <code>x</code> 為 0，所以此程式碼會印出 <code>位於 y 軸的 7</code>。</p>
-<p>回想一下 <code>match</code> 表達式在找到第一個符合的配對模式之後就會停止檢查分支，所以就算 <code>Point { x: 0, y: 0}</code> 真的在 <code>x</code> 軸與 <code>y</code> 軸，此程式碼也只會印出 <code>On the x axis at 0</code>。</p>
+<p>回想一下 <code>match</code> 表達式在找到第一個符合的配對模式之後就會停止檢查分支，所以就算 <code>Point { x: 0, y: 0}</code> 真的在 <code>x</code> 軸與 <code>y</code> 軸，此程式碼也只會印出 <code>位於 x 軸的 0</code>。</p>
 <h4 id="解構列舉"><a class="header" href="#解構列舉">解構列舉</a></h4>
 <p>我們已經在本書中之前的章節就解構過列舉（比如第六章的範例 6-5）。但我們還沒談到的細節是解構列舉的模式必須與列舉定義中其所儲存的資料相符。作為示範，我們在範例 18-15 中使用範例 6-2 的 <code>Message</code> 列舉並寫一個 <code>match</code> 來提供會解構每個內部數值的模式。</p>
 <p><span class="filename">檔案名稱：src/main.rs</span></p>
@@ -15131,7 +15131,7 @@ fn main() {
 <span class="boring">}
 </span></code></pre></pre>
 <p><span class="caption">範例 18-19：忽略元組中數個位置</span></p>
-<p>此程式碼會印出 <code>一些數字2、8、32</code>，然後數值 4 與 16 會被忽略。</p>
+<p>此程式碼會印出 <code>一些數字：2、8、32</code>，然後數值 4 與 16 會被忽略。</p>
 <h4 id="在名稱前加上-_-來忽略未使用的變數"><a class="header" href="#在名稱前加上-_-來忽略未使用的變數">在名稱前加上 <code>_</code> 來忽略未使用的變數</a></h4>
 <p>如果你建立了一個變數但沒有在任何地方使用到它，Rust 通常會提出警告，因為未使用的變數可能會是個錯誤。但有時候先建立個你還沒有使用的變數是很有用的，像是你還在寫原型或是才剛開個專案而已。在這種場合，你可以在尚未使用的變數名稱前加上底線，來告訴 Rust 不用提出警告。在範例 18-20 中，我們建立了兩個未使用的變數，但當我們編譯此程式碼時，我們應該會只收到其中一個的警告而已。</p>
 <p><span class="filename">檔案名稱：src/main.rs</span></p>
