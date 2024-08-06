@@ -6,7 +6,7 @@
 
 本書的 HTML 格式可以在線上閱讀：[https://doc.rust-lang.org/stable/book/](https://doc.rust-lang.org/stable/book/)（[正體中文版](https://rust-lang.tw/book-tw/)）。而離線版則包含在 `rustup` 安裝的 Rust 中，輸入 `rustup docs --book` 就能開啟。
 
-社群中也有提供本書的各種[譯本]。
+社群中也有提供本書的各種[譯本][translations]。
 
 本書也有由 [No Starch Press 出版平裝與電子版格式][nsprust]。
 
