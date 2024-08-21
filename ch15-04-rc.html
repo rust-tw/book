@@ -146,7 +146,7 @@
 <p><code>Rc&lt;T&gt;</code> 型別的使用時機在於當我們想要在堆積上配置一些資料給程式中數個部分讀取，但是我們無法在編譯時期決定哪個部分會最後一個結束使用數值的部分。如果我們知道哪個部分會最後結束的話，我們可以將那個部分作為資料的擁有者就好，然後正常的所有權規則就會在編譯時生效。</p>
 <p>注意到 <code>Rc&lt;T&gt;</code> 只適用於單一執行緒（single-threaded）的場合。當我們在第十六章討論並行（concurrency）時，我們會介紹如何在多執行緒程式達成參考計數。</p>
 <h3 id="使用-rct-來分享資料"><a class="header" href="#使用-rct-來分享資料">使用 <code>Rc&lt;T&gt;</code> 來分享資料</a></h3>
-<p>讓我們回顧範例 15-5 的 cons list 範例。回想一下我們當時適用 <code>Box&lt;T&gt;</code> 定義。這次我們會建立兩個列表，它們會同時共享第三個列表的所有權。概念上會如圖示 15-3 所示：</p>
+<p>讓我們回顧範例 15-5 的 cons list 範例。回想一下我們當時是用 <code>Box&lt;T&gt;</code> 定義。這次我們會建立兩個列表，它們會同時共享第三個列表的所有權。概念上會如圖示 15-3 所示：</p>
 <img alt="Two lists that share ownership of a third list" src="img/trpl15-03.svg" class="center" />
 <p><span class="caption">圖示 15-3：兩個列表 <code>b</code> 和 <code>c</code> 共享第三個列表 <code>a</code> 的所有權</span></p>
 <p>我們會建立列表 <code>a</code> 來包含 5 然後是 10。然後我們會在建立兩個列表：<code>b</code> 以 3 為開頭而 <code>c</code> 以 4 為開頭。<code>b</code> 與 <code>c</code> 列表會同時連接包含 5 與 10 的第一個列表 <code>a</code>。換句話說，兩個列表會同時共享包含 5 與 10 的第一個列表。</p>
